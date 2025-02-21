@@ -40,7 +40,7 @@ function TodoApp() {
         { id: 'IN_PROGRESS', title: 'Work in Progress' },
         { id: 'DONE', title: 'Completed' },
     ];
-    const { user } = useContext(AuthContext);
+    const { user, notify } = useContext(AuthContext);
     const axiosPublic = useAxiosPublic();
     const [tasks, setTasks] = useState([]);
 
@@ -71,6 +71,7 @@ function TodoApp() {
         const info = { taskId, targetColumnId }
         const res = await axiosPublic.patch(`/task-drag`, info);
         if (res.data.modifiedCount > 0) {
+            notify('success', 'Task moved to Done')
             refetch();
         }
         if (active.data.current.column === targetColumnId) {
