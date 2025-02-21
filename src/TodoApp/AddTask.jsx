@@ -2,7 +2,14 @@ import React, { useContext, useState } from 'react'
 import useAxiosPublic from '../hooks/useAxiosPublic';
 import { AuthContext } from '../providers/AuthProvider';
 import { useNavigate } from 'react-router-dom';
-
+const options = {
+    day: '2-digit',
+    month: 'short',
+    year: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+};
 const AddTask = () => {
     const axiosPublic = useAxiosPublic();
     const { user, notify } = useContext(AuthContext);
@@ -13,7 +20,8 @@ const AddTask = () => {
         const title = form.title.value;
         const description = form.description.value;
         const status = "TODO";
-        const task = { email: user?.email, title, description, status }
+        const time = new Date().toLocaleString('en-GB', options).replace(',', '');
+        const task = { email: user?.email, title, description, status, time }
         console.log(task)
         const res = await axiosPublic.post('/tasks', task)
         // console.log(res)

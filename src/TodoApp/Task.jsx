@@ -5,6 +5,16 @@ import { MdDelete } from "react-icons/md";
 import useAxiosPublic from '../hooks/useAxiosPublic';
 import { AuthContext } from '../providers/AuthProvider';
 import Swal from 'sweetalert2';
+
+const options = {
+    day: '2-digit',
+    month: 'short',
+    year: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+};
+
 const Task = ({ task, refetch }) => {
     const axiosPublic = useAxiosPublic();
     const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +48,9 @@ const Task = ({ task, refetch }) => {
         const title = taskData.title;
         const description = taskData.description;
         const status = task.status;
-        const updateData = { email: user?.email, title, description, status }
+        const time = new Date().toLocaleString('en-GB', options).replace(',', '');
+        const updateData = { email: user?.email, title, description, status, time }
+
         console.log(updateData)
         const res = await axiosPublic.patch(`/task/${task._id}`, updateData);
         if (res.data.modifiedCount > 0) {
@@ -106,13 +118,14 @@ const Task = ({ task, refetch }) => {
             className="cursor-pointer rounded-lg bg-teal-400 p-2 shadow-sm hover:shadow-lg"
             style={style}
         >
-            <div
+            <div className='px-2'
                 {...attributes}
                 {...listeners}
             >
                 <h3
-                    className="font-medium text-neutral-950">{task.title}</h3>
-                <p className="my-2 text-sm text-neutral-800">{task.description}</p>
+                    className="font-medium text-neutral-950 text-center">{task.title}</h3>
+                <p className="my-2 text-sm text-neutral-800 text-justify">{task.description}</p>
+                <p className="my-2 text-sm text-neutral-800 text-end">{task.time}</p>
             </div>
             <div className='flex justify-center gap-5 px-2'>
                 <button

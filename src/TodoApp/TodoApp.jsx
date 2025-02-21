@@ -5,7 +5,14 @@ import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../providers/AuthProvider";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import LoadingSpinner from "../components/LoadingSpinner";
-
+const options = {
+    day: '2-digit',
+    month: 'short',
+    year: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+};
 
 const INITIAL_TASKS = [
     {
@@ -68,7 +75,8 @@ function TodoApp() {
 
         console.log("Dragged Task ID:", taskId);
         console.log("Dropped on Column ID:", targetColumnId);
-        const info = { taskId, targetColumnId }
+        const time = new Date().toLocaleString('en-GB', options).replace(',', '');
+        const info = { taskId, targetColumnId, time }
         const res = await axiosPublic.patch(`/task-drag`, info);
         if (res.data.modifiedCount > 0) {
             notify('success', 'Task moved to Done')
