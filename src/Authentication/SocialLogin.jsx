@@ -14,16 +14,17 @@ const SocialLogin = () => {
             .then(result => {
                 notify('success', 'Google Login successfully');
                 navigate('/')
-                // const userInfo = {
-                //     name: result.user?.displayName,
-                //     email: result.user?.email,
-                //     photo: result.user?.photoURL,
-                //     role: 'member'
-                // }
-                // axiosPublic.post('/users', userInfo)
-                //     .then(res => {
-                //         navigate(from)
-                //     })
+                const userInfo = {
+                    name: result.user?.displayName,
+                    email: result.user?.email,
+                    photo: result.user?.photoURL,
+                    uid: result.user?.uid,
+
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        navigate('/')
+                    })
 
             })
             .catch(error => {

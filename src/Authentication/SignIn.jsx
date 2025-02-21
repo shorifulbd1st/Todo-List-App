@@ -12,22 +12,22 @@ const SignIn = () => {
     const location = useLocation();
     const from = location.state || '/';
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        handleLogin(email, password)
-            .then(res => {
-                const user = { email: email };
-                notify('success', 'login successful')
-                navigate(from)
+    // const handleSubmit = e => {
+    //     e.preventDefault();
+    //     const form = e.target;
+    //     const email = form.email.value;
+    //     const password = form.password.value;
+    //     handleLogin(email, password)
+    //         .then(res => {
+    //             const user = { email: email };
+    //             notify('success', 'login successful')
+    //             navigate(from)
 
-            })
-            .catch(error => {
-                // console.log('error', error.message)
-            })
-    }
+    //         })
+    //         .catch(error => {
+    //             // console.log('error', error.message)
+    //         })
+    // }
     return (
         <div className='w-11/12 mx-auto my-5'>
             <Helmet>

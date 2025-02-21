@@ -64,9 +64,9 @@ const AuthProvider = ({ children }) => {
     const forgetPassword = (email) => {
         return sendPasswordResetEmail(auth, email);
     }
-    // useEffect(() => {
-    //     console.log('user--->', user)
-    // }, [user])
+    useEffect(() => {
+        console.log('user--->', user)
+    }, [user])
 
     const axiosPublic = useAxiosPublic();
     useEffect(() => {

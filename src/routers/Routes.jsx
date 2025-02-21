@@ -4,6 +4,7 @@ import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
 import SignIn from "../Authentication/SignIn";
 import PrivateRoute from "./PrivateRoute";
+import AddTask from "../TodoApp/AddTask";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             //     path: '/register',
             //     element: <Register></Register>
             // },
+            {
+                path: '/add-task',
+                element: <AddTask></AddTask>
+            }
 
         ]
     },

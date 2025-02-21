@@ -1,7 +1,7 @@
 import React from 'react'
-import Task from './Task'
 import { useDroppable } from '@dnd-kit/core'
-const Column = ({ column, tasks }) => {
+import Task from './Task'
+const Column = ({ column, tasks, refetch }) => {
     // console.log(column)
     // console.log(tasks)
     const { setNodeRef } = useDroppable({
@@ -13,12 +13,14 @@ const Column = ({ column, tasks }) => {
             <h2 className='border-b-2 mb-2 border-black'>{column.title}</h2>
             <div className='space-y-4'>
                 {
-                    tasks.map((task) => <Task key={task.id} task={task}></Task>)
+                    tasks.map((task) => <Task key={task._id} task={task} refetch={refetch}></Task>)
                 }
             </div>
+
         </div>
     )
 }
+
 
 export default Column
 

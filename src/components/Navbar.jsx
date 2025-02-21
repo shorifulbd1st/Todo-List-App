@@ -42,7 +42,7 @@ const Navbar = () => {
     }, [theme])
 
     return (
-        <div className="sticky top-0 z-[900] border border-red-600">
+        <div className="sticky top-0 z-[900] ">
             <nav className="relative text-white shadow dark:bg-gray-800 bg-[#C70039]">
                 <div className="w-11/12 py-4 mx-auto">
                     <div className="lg:flex justify-between">
@@ -122,15 +122,15 @@ const Navbar = () => {
                                 >
                                     Home
                                 </NavLink>
-                                {/* <NavLink
-                                    to="/all-trainer"
+                                <NavLink
+                                    to="/add-task"
                                     className={({ isActive }) =>
-                                        `inline-block px-2 py-2 text-white mx-3 mt-2 transition-colors duration-700 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-green-500 dark:hover:bg-gray-700 ${isActive ? "bg-[#C70039] text-white" : ""
+                                        `inline-block px-2 py-2 text-white mx-3 mt-2 transition-colors duration-700 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-green-500 dark:hover:bg-gray-700 ${isActive ? "bg-green-600 text-white" : ""
                                         }`
                                     }
                                 >
-                                    Profile
-                                </NavLink> */}
+                                    Add Task
+                                </NavLink>
 
                                 {
                                     user?.email && <>

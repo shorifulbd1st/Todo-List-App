@@ -3,7 +3,7 @@ import TodoApp from '../TodoApp/TodoApp'
 
 const Home = () => {
     return (
-        <div className=' w-11/12 mx-auto my-5 h-screen'>
+        <div className=''>
             <TodoApp></TodoApp>
         </div>
     )
