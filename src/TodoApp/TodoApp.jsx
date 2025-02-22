@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DndContext } from "@dnd-kit/core";
 import Column from "./Column";
 import { useQuery } from "@tanstack/react-query";
@@ -14,38 +14,17 @@ const options = {
     hour12: true
 };
 
-const INITIAL_TASKS = [
-    {
-        id: '1',
-        title: 'Brainstorm Features',
-        description: 'Identify key features to include in the project.',
-        status: 'TODO',
-    },
-    {
-        id: '2',
-        title: 'Design Wireframes',
-        description: 'Sketch out basic layouts for the TodoApplication.',
-        status: 'TODO',
-    },
-    {
-        id: '3',
-        title: 'Develop Core Components',
-        description: 'Build and test the main components of the TodoApp.',
-        status: 'IN_PROGRESS',
-    },
-    {
-        id: '4',
-        title: 'Deploy TodoApplication',
-        description: 'Set up hosting and deploy the final build.',
-        status: 'DONE',
-    },
-];
 
 function TodoApp() {
+    // const COLUMNS = [
+    //     { id: 'TODO', title: 'To Do' },
+    //     { id: 'IN_PROGRESS', title: 'Work in Progress' },
+    //     { id: 'DONE', title: 'Completed' },
+    // ];
     const COLUMNS = [
-        { id: 'TODO', title: 'To Do' },
-        { id: 'IN_PROGRESS', title: 'Work in Progress' },
-        { id: 'DONE', title: 'Completed' },
+        { id: 'To Do', title: 'To Do' },
+        { id: 'Work in Progress', title: 'Work in Progress' },
+        { id: 'Completed', title: 'Completed' },
     ];
     const { user, notify } = useContext(AuthContext);
     const axiosPublic = useAxiosPublic();
@@ -60,7 +39,20 @@ function TodoApp() {
             return res.data;
         }
     })
-    if (isPending) {
+    const { data: userData = [], isPendingUser } = useQuery({
+        queryKey: ['user'],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/user/${user?.email}`)
+            // console.log(res.data)
+            // setTasks(res.data)
+            return res.data;
+        }
+    })
+
+
+
+
+    if (isPending || isPendingUser) {
         return <LoadingSpinner></LoadingSpinner>
     }
 
@@ -73,14 +65,15 @@ function TodoApp() {
         const taskId = active.id;
         const targetColumnId = over.id;
 
-        console.log("Dragged Task ID:", taskId);
-        console.log("Dropped on Column ID:", targetColumnId);
+        // console.log("Dragged Task ID:", taskId);
+        // console.log("Dropped on Column ID:", targetColumnId);
         // const time = new Date().toLocaleString('en-GB', options).replace(',', '');
+
         const info = { taskId, targetColumnId }
         const res = await axiosPublic.patch(`/task-drag`, info);
         if (res.data.modifiedCount > 0) {
-            notify('success', 'Task moved to Done')
-            refetch();
+            notify('success', `Task moved ${active.data.current.column} to ${over.id} `)
+            // refetch();
         }
         if (active.data.current.column === targetColumnId) {
             const reorderedTasks = Array.from(tasks);
@@ -101,9 +94,14 @@ function TodoApp() {
     };
 
     return (
-        <div className=" ">
+        <div className="bg-teal-950 ">
+            <div className="w-11/12 mx-auto py-5 text-white flex flex-col justify-center items-center ">
+                <h1 className="">User ID : 012345 - {userData?.uid?.slice(-2)}</h1>
+                <h1 className="">Name : {userData?.name}</h1>
+                <h1 className="">Email : {userData?.email}</h1>
+            </div>
             <DndContext onDragEnd={handleDragEnd}>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 p-8 bg-teal-950">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 p-8 ">
                     {
                         COLUMNS.map((column) => (
                             <Column key={column.id}

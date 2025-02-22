@@ -19,7 +19,7 @@ const AddTask = () => {
         const form = e.target;
         const title = form.title.value;
         const description = form.description.value;
-        const status = "TODO";
+        const status = "To Do";
         const time = new Date().toLocaleString('en-GB', options).replace(',', '');
         const task = { email: user?.email, title, description, status, time }
         console.log(task)

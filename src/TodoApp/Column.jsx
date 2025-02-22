@@ -10,7 +10,7 @@ const Column = ({ column, tasks, refetch }) => {
     return (
         <div ref={setNodeRef}
             className='text-xl text-white font-semibold mb-4 shadow-md min-h-screen border border-red-700 bg-teal-700 rounded-xl py-4 px-6 text-center'>
-            <h2 className='border-b-2 mb-2 border-black'>{column.title}</h2>
+            <h2 className='border-b-2 mb-2 border-black '>{column.title}</h2>
             <div className='space-y-4'>
                 {
                     tasks.map((task) => <Task key={task._id} task={task} refetch={refetch}></Task>)

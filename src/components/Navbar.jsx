@@ -18,28 +18,16 @@ const Navbar = () => {
 
     const toggleMenu = useCallback(() => setIsOpen(!isOpen), [isOpen]);
 
-    const [userData, setUserData] = useState(null);
+
+    // const [theme, setTheme] = useState(
+    //     localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
+    // )
+
     // useEffect(() => {
-    //     const userFun = async () => {
-    //         const res = await axiosPublic.get(`/user/${user?.email}`);
-    //         setUserData(res.data)
-    //     }
-    //     userFun();
-    // }, [user?.email, axiosPublic])
-    // // if (!userData) {
-    //     return <LoadingSpinner></LoadingSpinner>
-
-    // }
-    // console.log(userData.role)
-    const [theme, setTheme] = useState(
-        localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
-    )
-
-    useEffect(() => {
-        localStorage.setItem('theme', theme)
-        const localTheme = localStorage.getItem('theme')
-        document.querySelector('html').setAttribute('data-theme', localTheme)
-    }, [theme])
+    //     localStorage.setItem('theme', theme)
+    //     const localTheme = localStorage.getItem('theme')
+    //     document.querySelector('html').setAttribute('data-theme', localTheme)
+    // }, [theme])
 
     return (
         <div className="sticky top-0 z-[900] ">
@@ -200,8 +188,6 @@ const Navbar = () => {
                                 )}
                             </div>
                             {/* <div className='flex-none'>
-
-
                                 <select
                                     name='theme'
                                     className={`py-2 px-1  rounded border-2 focus-none outline-none ${theme === 'light' ? 'text-black' : 'text-white'}`}

@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.toast-custom-width {
+    width: 400px !important;
+    /* যেকোনো কাঙ্ক্ষিত width দিন */
+    white-space: pre-line;
+    /* লাইন ব্রেক ঠিক রাখবে */
+}

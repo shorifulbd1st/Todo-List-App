@@ -111,6 +111,7 @@ const AuthProvider = ({ children }) => {
         <AuthContext.Provider value={authInfo}>
             {children}
             <ToastContainer
+
                 position="top-left"
                 autoClose={2000}
                 hideProgressBar={false}
@@ -121,6 +122,7 @@ const AuthProvider = ({ children }) => {
                 draggable
                 pauseOnHover
                 theme="light"
+                toastClassName="toast-custom-width"
             />
         </AuthContext.Provider>
     )
