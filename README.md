@@ -57,51 +57,34 @@ Welcome to **Task Management Application**, The Task Management Application is a
 
 ## ✨ Features
 
-* Choose the trainer you like, build your body fitness, and stay healthy.
-* A user can book any trainer of their choice.
-* A user can choose a trainer based on the trainer's experience.
-* A user can apply for a train.
-* The user can see the details of all the trains booked on his dashboard.
-* Users will be able to review the trainers they have booked.
-* A trainer can book multiple slots.
-* The trainer will be able to update and delete his slots.
-* A trainer can post different types of content in their community.
-* The trainer will have a dashboard where they can manage their slots.
-* Admin can remove any trainer.
-* Admin can add new classes.
-* Admin can post various types of posts in the community.
-* Admin will be able to see all payment history.
+- **Task Management:** Users can add new tasks with a title, category, and description, edit existing tasks, and delete tasks as needed with a confirmation toast. View all tasks in a responsive grid layout.
+- **Drag-and-Drop Functionality:** Users can effortlessly reorder tasks and move them between categories.
+- **Real-Time Updates:**  Instant synchronization of task changes across all connected users.
+- **Persistent Storage:** Task data is stored in a MongoDB database to ensure seamless access and retrieval.
+- **Clean UI/UX:** The application features a minimalistic and responsive design, ensuring smooth usability on both desktop and mobile devices.
 
 ---
 
 ## 🧰 NPM Packages Used
-
-* "@stripe/react-stripe-js": "^3.1.1",
-* "@stripe/stripe-js": "^5.5.0",
-* "@tanstack/react-query": "^5.64.1",
-* "animate.css": "^4.1.1",
-* "aos": "^2.3.4",
-* "axios": "^1.7.9",
-* "firebase": "^11.1.0",
-* "localforage": "^1.10.0",
-* "lottie-react": "^2.4.0",
-* "match-sorter": "^8.0.0",
-* "motion": "^12.0.0",
-* "react": "^18.3.1",
-* "react-awesome-slider": "^4.1.0",
-* "react-dom": "^18.3.1",
-* "react-helmet-async": "^2.0.5",
-* "react-hook-form": "^7.54.2",
-* "react-icons": "^5.4.0",
-* "react-id-swiper": "^4.0.0",
-* "react-router-dom": "^7.1.1",
-* "react-select": "^5.9.0",
-* "react-toastify": "^11.0.2",
-* "react-tooltip": "^5.28.0",
-* "recharts": "^2.15.0",
-* "sort-by": "^1.2.0",
-* "sweetalert2": "^11.15.10",
-* "swiper": "^11.2.1"
+- "@dnd-kit/accessibility": "^3.1.1",
+- "@dnd-kit/core": "^6.3.1",
+- "@dnd-kit/sortable": "^10.0.0",
+- "@tanstack/react-query": "^5.66.8",
+- "axios": "^1.7.9",
+- "firebase": "^11.3.1",
+- "localforage": "^1.10.0",
+- "lottie-react": "^2.4.1",
+- "match-sorter": "^8.0.0",
+- "react": "^19.0.0",
+- "react-dom": "^19.0.0",
+- "react-helmet-async": "^2.0.5",
+- "react-icons": "^5.5.0",
+- "react-router-dom": "^7.2.0",
+- "react-toastify": "^11.0.3",
+- "react-tooltip": "^5.28.0",
+- "socket.io-client": "^4.8.1",
+- "sort-by": "^1.2.0",
+- "sweetalert2": "^11.17.2"
 
 ---
 
@@ -119,8 +102,8 @@ Welcome to **Task Management Application**, The Task Management Application is a
 1. Clone the client-side repository:
 
    ```bash
-   git clone https://github.com/shorifulbd1st/Body-Build-House.git
-   cd Body-Build-House
+   git clone https://github.com/shorifulbd1st/Todo-List-App.git
+   cd Todo-List-App
    ```
 
 2. Install dependencies:
@@ -156,8 +139,8 @@ Welcome to **Task Management Application**, The Task Management Application is a
 1. Clone the server-side repository:
 
    ```bash
-   git clone https://github.com/shorifulbd1st/Body-Build-Sever.git
-   cd Body-Build-Sever
+   git clone https://github.com/shorifulbd1st/Todo-List-Server.git
+   cd Todo-List-Server
    ```
 
 2. Install dependencies:
@@ -186,10 +169,8 @@ Welcome to **Task Management Application**, The Task Management Application is a
    ```bash
    DB_USER=..........................................
    DB_PASS=..........................................
-   ACCESS_TOKEN_SECRET=..........................................
-   STRIPE_SECRET_KEY=..........................................
    ```
-   > **Note:** Replace the `index.js` file's `mongo_uri` and the `.env` file's `DB_USER`, `DB_PASS`, `ACCESS_TOKEN_SECRET` and `STRIPE_SECRET_KEY` with actual values.
+   > **Note:** Replace the `index.js` file's `mongo_uri` and the `.env` file's `DB_USER` and `DB_PASS`,  with actual values.
 
 ## 🧑‍💻 Authors
 
