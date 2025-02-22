@@ -58,7 +58,7 @@ function TodoApp() {
 
 
     const handleDragEnd = async (event) => {
-        console.log('event', event)
+        // console.log('event', event)
         const { active, over } = event;
         if (!active || !over) return;
 

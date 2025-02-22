@@ -37,12 +37,13 @@ const Navbar = () => {
                         {/* Logo and Brand Name */}
                         <div className="flex items-center justify-between">
                             <div className="relative flex justify-center items-center">
-                                <img
+                                {/* <img
                                     className="w-12 rounded-full mr-1"
                                     // src="https://i.ibb.co.com/cyZC6hW/ai-generated-8243469-640.jpg"
                                     alt=""
                                     loading="lazy"
-                                />
+                                /> */}
+                                <img width="64" height="64" src="https://img.icons8.com/external-flat-design-circle/64/external-Todo-List-business-flat-design-circle.png" alt="external-Todo-List-business-flat-design-circle" />
                                 <h1 className="text-center flex">
                                     <Link href="/" className="text-2xl cursor-pointer font-semibold text-center text-transparent bg-clip-text  drop-shadow-lg text-white">
                                         Todo List
@@ -55,7 +56,7 @@ const Navbar = () => {
                                 <button
                                     onClick={toggleMenu}
                                     type="button"
-                                    className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+                                    className="text-gray-500 bg-[#C70039] dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
                                     aria-label="toggle menu"
                                 >
                                     {isOpen ? (
@@ -95,12 +96,12 @@ const Navbar = () => {
 
                         {/* Navigation Links and User Actions */}
                         <div
-                            className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-700 ease-in-out bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:flex lg:items-center ${isOpen
-                                ? "translate-x-0 opacity-100"
-                                : "opacity-0 -translate-x-full lg:opacity-100 lg:translate-x-0"
+                            className={`absolute inset-x-0 z-20 w-full px-6 py-4 bg-[#C70039] transition-all duration-700 ease-in-out lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:flex lg:items-center ${isOpen
+                                ? "translate-x-0 opacity-100 bg-[#C70039]"
+                                : "opacity-0 -translate-x-full lg:opacity-100 lg:translate-x-0 bg-[#C70039]"
                                 }`}
                         >
-                            <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-2 xl:mx-4 xl:text-lg">
+                            <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-2 xl:mx-4 xl:text-lg ">
                                 <NavLink
                                     to="/"
                                     className={({ isActive }) =>

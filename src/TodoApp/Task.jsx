@@ -51,7 +51,7 @@ const Task = ({ task, refetch }) => {
         // const time = new Date().toLocaleString('en-GB', options).replace(',', '');
         const updateData = { email: user?.email, title, description, status }
 
-        console.log(updateData)
+        // console.log(updateData)
         const res = await axiosPublic.patch(`/task/${task._id}`, updateData);
         if (res.data.modifiedCount > 0) {
             let timerInterval;
