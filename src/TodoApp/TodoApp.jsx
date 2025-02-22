@@ -96,7 +96,7 @@ function TodoApp() {
     return (
         <div className="bg-teal-950 ">
             <div className="w-11/12 mx-auto py-5 text-white flex flex-col justify-center items-center ">
-                <h1 className="">User ID : 012345 - {userData?.uid?.slice(-2)}</h1>
+                <h1 className="">User ID : 012345 - {userData?.uid?.slice(-5)}</h1>
                 <h1 className="">Name : {userData?.name}</h1>
                 <h1 className="">Email : {userData?.email}</h1>
             </div>

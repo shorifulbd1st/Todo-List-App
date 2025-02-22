@@ -88,7 +88,7 @@ const AddTask = () => {
                     </div>
 
                     <div className="flex justify-start mt-6">
-                        <input type='submit' value="Add Task" className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-[#C70039] rounded-md capitalize  focus:outline-none ">
+                        <input type='submit' value="Add Task" className="px-8 cursor-pointer py-2.5 leading-5 text-white transition-colors duration-300 transform bg-[#C70039] rounded-md capitalize  focus:outline-none ">
 
                         </input>
                     </div>

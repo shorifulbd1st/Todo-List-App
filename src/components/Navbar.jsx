@@ -43,7 +43,7 @@ const Navbar = () => {
                                     alt=""
                                     loading="lazy"
                                 /> */}
-                                <img width="64" height="64" src="https://img.icons8.com/external-flat-design-circle/64/external-Todo-List-business-flat-design-circle.png" alt="external-Todo-List-business-flat-design-circle" />
+                                <img width="48" height="48" src="https://img.icons8.com/external-flat-design-circle/64/external-Todo-List-business-flat-design-circle.png" alt="external-Todo-List-business-flat-design-circle" />
                                 <h1 className="text-center flex">
                                     <Link href="/" className="text-2xl cursor-pointer font-semibold text-center text-transparent bg-clip-text  drop-shadow-lg text-white">
                                         Todo List
@@ -97,8 +97,8 @@ const Navbar = () => {
                         {/* Navigation Links and User Actions */}
                         <div
                             className={`absolute inset-x-0 z-20 w-full px-6 py-4 bg-[#C70039] transition-all duration-700 ease-in-out lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:flex lg:items-center ${isOpen
-                                ? "translate-x-0 opacity-100 bg-[#C70039]"
-                                : "opacity-0 -translate-x-full lg:opacity-100 lg:translate-x-0 bg-[#C70039]"
+                                ? "translate-x-0 opacity-100 "
+                                : "opacity-0 -translate-x-full lg:opacity-100 lg:translate-x-0"
                                 }`}
                         >
                             <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-2 xl:mx-4 xl:text-lg ">
@@ -121,7 +121,7 @@ const Navbar = () => {
                                     Add Task
                                 </NavLink>
 
-                                {
+                                {/* {
                                     user?.email && <>
                                         <NavLink
                                             to="/profile"
@@ -134,7 +134,7 @@ const Navbar = () => {
                                         </NavLink>
 
                                     </>
-                                }
+                                } */}
                             </div>
 
                             {/* User Actions */}
