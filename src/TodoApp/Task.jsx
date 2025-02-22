@@ -48,8 +48,8 @@ const Task = ({ task, refetch }) => {
         const title = taskData.title;
         const description = taskData.description;
         const status = task.status;
-        const time = new Date().toLocaleString('en-GB', options).replace(',', '');
-        const updateData = { email: user?.email, title, description, status, time }
+        // const time = new Date().toLocaleString('en-GB', options).replace(',', '');
+        const updateData = { email: user?.email, title, description, status }
 
         console.log(updateData)
         const res = await axiosPublic.patch(`/task/${task._id}`, updateData);

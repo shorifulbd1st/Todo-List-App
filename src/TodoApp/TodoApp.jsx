@@ -75,8 +75,8 @@ function TodoApp() {
 
         console.log("Dragged Task ID:", taskId);
         console.log("Dropped on Column ID:", targetColumnId);
-        const time = new Date().toLocaleString('en-GB', options).replace(',', '');
-        const info = { taskId, targetColumnId, time }
+        // const time = new Date().toLocaleString('en-GB', options).replace(',', '');
+        const info = { taskId, targetColumnId }
         const res = await axiosPublic.patch(`/task-drag`, info);
         if (res.data.modifiedCount > 0) {
             notify('success', 'Task moved to Done')
